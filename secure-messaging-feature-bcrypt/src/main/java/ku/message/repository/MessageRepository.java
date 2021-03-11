@@ -1,6 +1,7 @@
 package ku.message.repository;
 
 import ku.message.model.Message;
+import org.apache.logging.log4j.message.Message;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
