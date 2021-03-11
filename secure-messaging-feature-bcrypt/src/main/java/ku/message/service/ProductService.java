@@ -35,4 +35,22 @@ public class ProductService
 
 		return Arrays.asList(products);
 	}
+
+
+	public String createProduct(Product product)
+	{
+		String token = tokenService.requestAccessToken();
+
+		HttpHeaders headers = new HttpHeaders();
+		headers.add("authorization", "Bearer " + token);
+		headers.add("Content-Type", MediaType.APPLICATION_JSON.toString());
+		HttpEntity entity = new HttpEntity(product, headers);
+
+		String url = "http://localhost:8091/api/products";
+
+		ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.POST, entity, String.class);
+
+		return response.getBody();
+	}
+
 }
