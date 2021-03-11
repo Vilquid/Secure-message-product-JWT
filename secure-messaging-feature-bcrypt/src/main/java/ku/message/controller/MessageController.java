@@ -12,29 +12,33 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class MessageController {
 
-    private MessageRepository repository;
+	private MessageRepository repository;
 
-    public MessageController(MessageRepository repository) {
-        this.repository = repository;
-    }
+	public MessageController(MessageRepository repository)
+	{
+		this.repository = repository;
+	}
 
-    @GetMapping("/message")
-    public String getMessagePage(Model model) {
-        model.addAttribute("messages", repository.findAll());
-        return "message";
-    }
+	@GetMapping("/message")
+	public String getMessagePage(Model model)
+	{
+		model.addAttribute("messages", repository.findAll());
 
-    @GetMapping("/post")
-    public String getPostPage() {
-        return "post";
-    }
+		return "message";
+	}
 
-    @PostMapping("/message")
-    public String postMessage(@ModelAttribute Message message, Model model) {
-        repository.save(message);
-        model.addAttribute("messages", repository.findAll());
-        return "redirect:message";
-    }
+	@GetMapping("/post")
+	public String getPostPage()
+	{
+		return "post";
+	}
 
+	@PostMapping("/message")
+	public String postMessage(@ModelAttribute Message message, Model model)
+	{
+		repository.save(message);
+		model.addAttribute("messages", repository.findAll());
 
+		return "redirect:message";
+	}
 }
