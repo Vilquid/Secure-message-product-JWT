@@ -2,6 +2,7 @@ package ku.message.controller;
 
 import ku.message.model.Message;
 import ku.message.repository.MessageRepository;
+import org.apache.logging.log4j.message.Message;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
