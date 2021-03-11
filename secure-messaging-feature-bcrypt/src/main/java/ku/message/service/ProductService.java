@@ -21,6 +21,8 @@ public class ProductService
 	{
 		String token = tokenService.requestAccessToken();
 
+		System.out.println("Token : " + token);
+
 		HttpHeaders headers = new HttpHeaders();
 		headers.add("authorization", "Bearer " + token);
 		HttpEntity entity = new HttpEntity(headers);
