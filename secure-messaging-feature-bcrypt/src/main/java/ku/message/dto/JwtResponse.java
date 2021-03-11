@@ -13,5 +13,8 @@ public class JwtResponse
 	@JsonProperty("token_type")
 	private String tokenType;
 
+	public String getAccessToken()
+	{}
+
 	// . . . generate all getters / setters . . .
 }
